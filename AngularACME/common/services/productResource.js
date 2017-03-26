@@ -1,12 +1,15 @@
-// this is a service for Product resourse on module common.services
-(function(){
+﻿(function(){
     "use strict";
-    angular
-        .module("common.services")
-        .factory("productResource",["$resource",productResource]);
 
-    function productResource($resource){
-        return $resource("/api/products/:productId");
-    } 
-    
+    angular
+        .module("common.services") //hook up the module
+        .factory("productResource",
+                ["$resource",
+                productResource]); //ref factory service function
+
+    function productResource($resource) { //the function
+        return $resource("/api/products/:productId") //5 methods: Get; Query (also GET (array)); Save; Delete; Remove
+    }
+
+
 }());

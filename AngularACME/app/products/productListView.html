@@ -1,0 +1,39 @@
+﻿<div class="panel panel-primary">
+    <div class="panel-heading" style="font-size:large">Product List</div>
+    <div class="panel-body">
+        <table class="table">
+            <!-- controller as: vm = allias -->
+            <thead>
+                <tr>
+                    <td>
+                        <button type="button"
+                                class="btn btn-primary"
+                                data-ng-click="vm.toggleImage()">
+                            {{vm.showImage ? "Hide" : "Show"}} Image
+                        </button>
+                    </td>
+                    <td>Products</td>
+                    <td>Code</td>
+                    <td>Available</td>
+                    <td>Price</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-ng-repeat="product in vm.products">
+                    <!-- update to use the allias. From products to vm.products --> <!-- don't have to update the repeat items, as the use the LOCAL var product -->
+                    <td>
+                        <!-- data-ng-show directive below: show image when TRUE (still downloads the images). Using ng-if does not download the images. Save on data. -->
+                        <img data-ng-if="vm.showImage"
+                             data-ng-src="{{product.imageUrl}}"
+                             style="width:50px;margin:2px"
+                             title="{{product.productName}}">
+                    </td>
+                    <td>{{product.productName}}</td>
+                    <td>{{product.productCode}}</td>
+                    <td>{{product.releaseDate}}</td>
+                    <td>{{product.price | currency}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
