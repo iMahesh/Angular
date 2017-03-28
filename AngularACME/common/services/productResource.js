@@ -1,15 +1,17 @@
-﻿(function(){
+/**
+ * Created by Deb on 8/21/2014.
+ */
+(function () {
     "use strict";
 
     angular
-        .module("common.services") //hook up the module
+        .module("common.services")
         .factory("productResource",
                 ["$resource",
-                productResource]); //ref factory service function
+                 productResource]);
 
-    function productResource($resource) { //the function
-        return $resource("/api/products/:productId") //5 methods: Get; Query (also GET (array)); Save; Delete; Remove
+    function productResource($resource) {
+        return $resource("/api/products/:productId")
     }
-
 
 }());
